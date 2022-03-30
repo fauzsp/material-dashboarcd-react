@@ -20,8 +20,9 @@ import { Router, Routes, Route, useNavigate, Navigate, useLocation } from "react
 import PrivateRoute from "./PrivateRoute";
 import SignIn from "layouts/authentication/sign-in";
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
-
+import Basic from "layouts/tables/basic";
+import Pro from "layouts/tables/Pro";
+import Business from "layouts/tables/business";
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -30,7 +31,7 @@ import Icon from "@mui/material/Icon";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import * as common from "./assets/js/helpers/common";
-
+import "./styles.scss";
 // Material Dashboard 2 React example components
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
@@ -101,7 +102,9 @@ function routeComponent() {
         <Routes>
           <Route exact path='/' element={<PrivateRoute/>}>
             <Route exact path='/dashboard' key="dashboard" element={<Dashboard />}/>
-            <Route exact path='/tables' key="tables" element={<Tables />} />
+            <Route exact path='/tables/basic-members' key="tables-basic-members" element={<Basic />} />
+            <Route exact path='/tables/pro-members' key="tables-pro-members" element={<Pro />} />
+            <Route exact path='/tables/business-members' key="tables-business-members" element={<Business />} />
           </Route>
           <Route path="*" element={<Dashboard />} />
           <Route path='/sign-in' element={<SignIn/>} key="sign-in"/>

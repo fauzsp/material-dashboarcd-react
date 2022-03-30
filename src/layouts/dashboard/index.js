@@ -18,7 +18,7 @@ import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
-
+import { NavLink } from 'react-router-dom'
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
@@ -36,13 +36,12 @@ import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
-
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox py={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
+          {/* <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
@@ -56,9 +55,10 @@ function Dashboard() {
                 }}
               />
             </MDBox>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
+            <NavLink to="/tables/basic-members">
               <ComplexStatisticsCard
                 icon="leaderboard"
                 title="Today's Users"
@@ -69,10 +69,12 @@ function Dashboard() {
                   label: "than last month",
                 }}
               />
+              </NavLink>
             </MDBox>
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
+            <NavLink to="/tables/pro-members">
               <ComplexStatisticsCard
                 color="success"
                 icon="store"
@@ -84,10 +86,12 @@ function Dashboard() {
                   label: "than yesterday",
                 }}
               />
+              </NavLink>
             </MDBox>
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
+            <NavLink to="/tables/business-members">
               <ComplexStatisticsCard
                 color="primary"
                 icon="person_add"
@@ -99,6 +103,7 @@ function Dashboard() {
                   label: "Just updated",
                 }}
               />
+              </NavLink>
             </MDBox>
           </Grid>
         </Grid>

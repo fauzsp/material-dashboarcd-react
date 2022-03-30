@@ -37,7 +37,10 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
+import Basic from "layouts/tables/basic";
+import Pro from "layouts/tables/Pro";
+import Business from "layouts/tables/business";
+
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
@@ -61,11 +64,29 @@ const routes = [
   {
     type: "collapse",
     routeType: "Private",
-    name: "Tables",
-    key: "tables",
+    name: "Basic Members",
+    key: "basic",
     icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
-    component: <Tables />,
+    route: "/tables/basic-members",
+    component: <Basic />,
+  },
+  {
+    type: "collapse",
+    routeType: "Private",
+    name: "Pro Members",
+    key: "pro",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/tables/pro-members",
+    component: <Pro />,
+  },
+  {
+    type: "collapse",
+    routeType: "Private",
+    name: "Business Members",
+    key: "business",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/tables/business-members",
+    component: <Business />,
   },
   {
     type: "collapse",
