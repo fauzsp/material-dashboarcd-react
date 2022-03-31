@@ -64,7 +64,7 @@ export const LogoutAction = (user_id) => {
 export const UserTableData = (token, id) => {
   const promise = axios.get("subscriptions/user_subscription_list", {
       params: {
-        plan_id: 1,
+        plan_id: id,
         token,
       },
       headers: { Authorization: "Bearer " + token },

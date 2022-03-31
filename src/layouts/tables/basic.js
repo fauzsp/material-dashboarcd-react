@@ -86,6 +86,11 @@ function Basic() {
         selector: row => row.user.email,
     },
     {
+      name: 'Status',
+      selector: row => row.status,
+  },
+    {
+      name: 'Action',
       cell: (data) => <button onClick={() => handleButtonClick(data)}>{data.disable == true ? "Disable" : "Enable"}</button>,
       ignoreRowClick: true,
       allowOverflow: true,
@@ -99,7 +104,6 @@ useEffect(() => {
   setTableData(tableData)
 }, [count])
 useEffect(() => {
-  debugger;
   const token = userAuth.login_token;
   const actionResp = UserTableData(token, 1);
   actionResp.then((resp) => {
