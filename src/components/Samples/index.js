@@ -1,17 +1,17 @@
 import axios from "axios";
 
-
- export const SigninAction = (user) => {
+export const SigninAction = (user) => {
   axios.defaults.headers.post["Content-Type"] = "application/json";
- var promise = axios
-  .post("https://mizdah.com/api/auth/login", {
-    email: user.email,
-    password: user.password,
-    device_type: "web",
-    desktop_version: "3.0.32",
-  }).then((response) => {
-    if (response.data.meta.code == "200") {
-      const id = response.data.data.id;
+  var promise = axios
+    .post(`${process.env.REACT_APP_API_URL}/auth/login`, {
+      email: user.email,
+      password: user.password,
+      device_type: "web",
+      desktop_version: "3.0.32",
+    })
+    .then((response) => {
+      if (response.data.meta.code == "200") {
+        const id = response.data.data.id;
         const user_id = response.data.data.id;
         const first_name = response.data.data.first_name;
         const last_name = response.data.data.last_name;
@@ -42,19 +42,37 @@ import axios from "axios";
 
         localStorage.setItem("user", JSON.stringify(loggedInUser));
         return loggedInUser;
-    }
-  }).catch((error) => {
-    
-    console.log(error);
-    return error;
-  });
+      } else {
+        return false;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
+    });
   return promise;
 };
 
 export const LogoutAction = (user_id) => {
-    var promise = axios.post("auth/logout").then((resp) => {
-      localStorage.clear();
-      return resp;
-		});
-    return promise;
+  var promise = axios.post("auth/logout").then((resp) => {
+    localStorage.clear();
+    return resp;
+  });
+  return promise;
+};
+
+export const UserTableData = (token, id) => {
+  const promise = axios.get("subscriptions/user_subscription_list", {
+      params: {
+        plan_id: 1,
+        token,
+      },
+      headers: { Authorization: "Bearer " + token },
+    }).then((response) => {
+      console.log(response);
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+  return promise;
 };

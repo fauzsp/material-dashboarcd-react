@@ -74,12 +74,16 @@ function Basic() {
     signin({email, password})
   }
   const signin = (user) => {
-    debugger;
    const actionResp = SigninAction(user);
       actionResp.then((resp) => {
-      // setUserLoginRequest(dispatch, resp);
-      return navigate("/dashboard")
-   })
+      if(resp) {
+        setUserLoginRequest(dispatch, resp);
+        return navigate("/dashboard")
+      }
+   }).catch((error) => {
+    console.log(error);
+    return error;
+  });
   };
 
   return (
