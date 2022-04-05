@@ -61,7 +61,7 @@ function Dashboard() {
             <NavLink to="/tables/basic-members">
               <ComplexStatisticsCard
                 icon="leaderboard"
-                title="Today's Users"
+                title="Basic Users"
                 count="2,300"
                 percentage={{
                   color: "success",
@@ -78,7 +78,7 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="success"
                 icon="store"
-                title="Revenue"
+                title="Pro Users"
                 count="34k"
                 percentage={{
                   color: "success",
@@ -95,7 +95,7 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="primary"
                 icon="person_add"
-                title="Followers"
+                title="Business Users"
                 count="+91"
                 percentage={{
                   color: "success",

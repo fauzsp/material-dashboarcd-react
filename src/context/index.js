@@ -64,7 +64,7 @@ function reducer(state, action) {
     }
     case "USER_LOGIN_REQUEST": {
       // console.log(state, action, 'checking action')
-      return {...state, userAuth: action.value}
+      return {userAuth: action.value}
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);

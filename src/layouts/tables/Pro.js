@@ -36,10 +36,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import DataTable from "react-data-table-component";
-// import DataTable from "examples/Tables/DataTable";
 
-// import authorsTableData from "layouts/tables/data/authorsTableData";
-// import projectsTableData from "layouts/tables/data/projectsTableData";
 
 function Pro() {
   const [tableData, setTableData] = useState([]);
